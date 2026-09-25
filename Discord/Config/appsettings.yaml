@@ -50,7 +50,7 @@ Client:
 
   # Sets gateway intents to limit what events are sent from Discord. The default is AllUnprivileged.
   # https://docs.discordnet.dev/api/Discord.GatewayIntents.html
-  GatewayIntents: Guilds
+  GatewayIntents: Guilds,GuildVoiceStates
 
   # Sets the minimum log level severity that will be sent to the Log event.
   # https://docs.discordnet.dev/api/Discord.LogSeverity.html
@@ -81,3 +81,12 @@ Interaction:
   # Отладочный сервер. Если указан, команды будут обновляться только для этого сервера.
   # Глобальное обновление команд может занимать гораздо большее время чем для конкретного сервера.
   # DebugGuildId: 0
+
+# Сервис временных голосовых комнат
+VoiceRoom:
+
+  # Массив из ID голосовых каналов, что должны быть хабами для создания новых временных комнат.
+  # VoiceHubs:
+  #  - 1
+  #  - 2
+  #  - 3

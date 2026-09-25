@@ -55,14 +55,16 @@ public class Program
             .AddSingleton(config.GetSection("Interaction").Get<AdvancedInteractionServiceConfig>() ?? new())
             .AddSingleton<AdvancedInteractionService>()
 
-            .AddSingleton<MainService>();
+            .AddSingleton<MainService>()
+            .AddSingleton<VoiceRoomService>();
+            
 
         return collection.BuildServiceProvider();
     }
 
     private static void InitServices(IServiceProvider provider)
     {
-
+        provider.GetService<VoiceRoomService>();
     }
 
     private static void Launch(IServiceProvider provider, string tokenfile)
