@@ -17,4 +17,4 @@ bin/
 obj/
 
 # Repository
-Config/*.token
+*.token
