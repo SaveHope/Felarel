@@ -1,0 +1,83 @@
+# Общий файл стандартной конфигурации. 
+# Отдельные настройки могут быть переопределены файлами appsettings.{env}.yaml
+
+# Конфигурация журналирования событий
+Logging:
+
+  # Общая настройка уровня журналирования
+  LogLevel:
+
+    # Стандартная подробность логирования событий
+    # https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.loglevel?view=net-11.0-pp
+    # None > Critical > Error > Warning > Information > Debug > Trace
+    Default: Trace
+
+  # Настройка журналирования в консоль
+  Console:
+
+    # Тип форматтера
+    FormatterName: simple
+
+    # Настройки формата
+    FormatterOptions:
+
+      # Включать область действия событий
+      IncludeScopes: true
+
+      # Однострочный вывод сообщения
+      SingleLine: true
+
+      # Формат даты-времени сообщения
+      TimestampFormat: "yy.MM.dd HH:mm:ss "
+
+  # Настройки журналирования на диск
+  # https://github.com/serilog/serilog-extensions-logging-file#appsettingsjson-configuration
+  File:
+
+    # Формат пути для сохранения логов
+    PathFormat: "Logs/{Date}.log"
+
+    # Лимит размера одного файла в байтах
+    FileSizeLimitBytes: 1048576
+
+    # Ограничение количества сохраняемых файлов
+    RetainedFileCountLimit: null
+
+
+# Настройки подключаемого клиента
+# https://docs.discordnet.dev/api/Discord.WebSocket.DiscordSocketConfig.html
+Client:
+
+  # Sets gateway intents to limit what events are sent from Discord. The default is AllUnprivileged.
+  # https://docs.discordnet.dev/api/Discord.GatewayIntents.html
+  GatewayIntents: Guilds
+
+  # Sets the minimum log level severity that will be sent to the Log event.
+  # https://docs.discordnet.dev/api/Discord.LogSeverity.html
+  # Critical > Error > Warning > Info > Verbose > Debug
+  LogLevel: Verbose
+
+# Настройка фреймворка интеракций
+# Наследует https://docs.discordnet.dev/api/Discord.Interactions.InteractionServiceConfig.html
+Interaction:
+
+  # Sets the default RunMode commands should have, if one is not specified on the Command attribute or builder.
+  # https://docs.discordnet.dev/api/Discord.Interactions.RunMode.html
+  DefaultRunMode: Async
+
+  # Sets the option allowing you to use AutocompleteHandlers.
+  # https://docs.discordnet.dev/api/Discord.Interactions.AutocompleteHandler.html
+  EnableAutocompleteHandlers: true
+  
+  # Sets the minimum log level severity that will be sent to the Log event.
+  # https://docs.discordnet.dev/api/Discord.LogSeverity.html
+  # Critical > Error > Warning > Info > Verbose > Debug
+  LogLevel: Verbose
+  
+  # Sets the option to use compiled lambda expressions to create module instances and execute commands. 
+  # This method improves performance at the cost of memory.
+  UseCompiledLambda: true
+  
+  # Отладочный сервер. Если указан, команды будут обновляться только для этого сервера.
+  # Глобальное обновление команд может занимать гораздо большее время чем для конкретного сервера.
+  # DebugGuildId: 0
