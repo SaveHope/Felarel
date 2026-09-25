@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Repository
+*.token
+appsettings.*.yaml
+
 # ---> VisualStudioCode
 .vscode/*
 !.vscode/settingssettings.json
