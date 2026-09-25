@@ -56,8 +56,8 @@ public class Program
             .AddSingleton<AdvancedInteractionService>()
 
             .AddSingleton<MainService>()
-            .AddSingleton<VoiceRoomService>();
-            
+            .AddSingleton<VoiceRoomService>()
+            .AddSingleton<SplashService>();
 
         return collection.BuildServiceProvider();
     }
@@ -65,6 +65,7 @@ public class Program
     private static void InitServices(IServiceProvider provider)
     {
         provider.GetService<VoiceRoomService>();
+        provider.GetService<SplashService>();
     }
 
     private static void Launch(IServiceProvider provider, string tokenfile)
