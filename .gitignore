@@ -12,3 +12,9 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
+# Dotnet
+bin/
+obj/
+
+# Repository
+Config/*.token
