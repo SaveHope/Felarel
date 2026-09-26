@@ -1,0 +1,9 @@
+name: Test Runner
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello from Runner
+        run: echo "Runner is working!"
