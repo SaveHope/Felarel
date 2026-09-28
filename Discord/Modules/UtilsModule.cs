@@ -8,6 +8,7 @@ namespace SaveHope.Felarel.Discord.Modules;
 public class UtilsModule(DiscordSocketClient client, MainService mainService) : InteractionModuleBase
 {
     [SlashCommand("avatar", "Shows user's avatar")]
+    [CommandContextType(InteractionContextType.Guild)]
     public async Task AvatarCommand(IUser user)
     {
         IGuildUser guildUser = (IGuildUser)user;
