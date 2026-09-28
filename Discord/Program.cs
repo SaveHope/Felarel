@@ -64,6 +64,7 @@ public class Program
 
     private static void InitServices(IServiceProvider provider)
     {
+        provider.GetService<AdvancedInteractionService>();
         provider.GetService<VoiceRoomService>();
         provider.GetService<SplashService>();
     }
